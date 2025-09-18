@@ -1,0 +1,224 @@
+
+
+.row.g-5.align-items-center {
+  margin-top: 2rem;
+}
+
+/* --- Related Products Section --- */
+.related-row {
+  align-items: stretch;
+}
+
+.related-col {
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Equal size images */
+.card-img-top {
+  height: 280px;       /* Set same height */
+  object-fit: cover;   /* Crop without distortion */
+  width: 100%;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+/* Card body alignment */
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* --- Review Section --- */
+.review-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+/* Product Section */
+.product {
+    background: #1a1a1a; /* dark background */
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease-in-out;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+/* Product Title */
+.product-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Price */
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #7C3AED; /* vibrant violet (your brand color) */
+    margin-bottom: 15px;
+}
+
+/* Description */
+.product-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+/* Size Options */
+.sizes label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2d2d2d;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 2px solid #444;
+    border-radius: 8px;
+    padding: 8px 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sizes input[type="radio"] {
+    margin-right: 6px;
+    accent-color: #7C3AED;
+    cursor: pointer;
+    transform: scale(1.2);
+    height: 15px;
+}
+.sizes input[type="radio"]:checked + label {
+    background: #7C3AED;
+    border-color: #7C3AED;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.6);
+}
+
+.sizes label:hover {
+    color: #7C3AED;
+}
+
+/* Add to Cart Button */
+.btn.primary {
+    background: #7C3AED;  /* violet */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn.primary:hover {
+    background: #5B21B6; /* darker violet */
+    transform: scale(1.05);
+}
+
+/* Category */
+.product-category {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+
+
+/* testimonial */
+/* Review Section */
+.rating-review {
+  background: #111; /* dark background */
+  padding: 60px 20px;
+  border-radius: 20px;
+  margin: 40px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.rating-review .section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* Review Grid */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* Review Card */
+.review-card {
+  background: #1c1c1c;
+  border-radius: 16px;
+  padding: 20px;
+  color: #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+/* Header */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.review-header h3 {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Stars */
+.stars {
+  font-size: 1.2rem;
+  color: #FFD700; /* gold stars */
+  letter-spacing: 2px;
+}
+
+/* Review Text */
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #ccc;
+}
+
+/* Author */
+.review-author {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #aaa;
+}
+
+.review-author .date {
+  color: #7C3AED; /* violet accent */
+}

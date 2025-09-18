@@ -1,0 +1,199 @@
+body{
+    background-color: rgb(0, 0, 0)!important;
+    color: white!important;
+    overflow-x: hidden;
+}
+
+.banner{
+    height: 70vh ;
+    width: 100% !important;
+    @media screen and (max-width: 800px) 
+    {
+        height: auto !important;
+        
+    }
+   
+   
+}
+.banner img{
+  height: 450px;
+  width: 450px;
+
+object-fit: cover;
+    object-position: center;
+    @media screen and (max-width: 800px) 
+    {
+        height: auto !important;
+        
+    }
+}
+
+
+
+/* new */
+.new{
+    height: 60vh;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    scroll-margin-top: 300px !important;
+    @media screen and (max-width: 800px) 
+    {
+        height: auto !important;
+        
+    }
+}
+.new .product-card {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 4:3 aspect ratio */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    background-color: #ffffff00;
+    background-blend-mode: overlay; /* align name at bottom */
+}
+
+
+.new .card-name {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+.new .product-card {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 4:3 aspect ratio */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end; /* name at bottom */
+}
+
+.new.card-name {
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/* catogory */
+.catogory{
+    height: 70vh;
+    width: 100% !important;
+    margin-top: 100px!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    scroll-margin-top: 70px;
+
+  
+    @media screen and (max-width: 800px) 
+    {
+        height: auto !important;
+        
+    }
+}
+.catogory img{
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    object-position: center;
+    @media screen and (max-width: 800px) 
+    {
+        height: 150px !important;
+        
+    }
+}
+
+
+
+/* contact */
+#contact{
+    scroll-margin-top: 100px!important;
+
+}
+
+form#contactForm {
+  max-width: 500px;
+  margin: auto;
+  /* background: #ffffff; */
+  border: 2px solid #6D28D9;
+  padding: 30px 40px;
+  margin-bottom: 120px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Input, Textarea styles */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: 1px solid #6D28D9;
+  color: white;
+  border-radius: 4px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styling */
+button.form-btn {
+  background-color: #6D28D9;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button.form-btn:hover {
+  background-color: #7C3AED;
+}
+
+/* Error messages */
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Optional: Success Message (if needed) */
+.success-message {
+  color: #28a745;
+  font-size: 15px;
+  margin-top: 10px;
+}
+

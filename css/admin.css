@@ -1,0 +1,22 @@
+body {
+    background-color: #121212;
+    color: white;
+}
+.table td, .table th {
+    vertical-align: middle;
+}
+.card{
+    background-color: #1a1a1a!important;
+}
+.card h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+
+
