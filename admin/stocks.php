@@ -32,7 +32,7 @@ $sql = "SELECT * FROM products ORDER BY id DESC";
 $result = mysqli_query($conn, $sql);
 
 if ($result && mysqli_num_rows($result) > 0) { ?>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 px-3 w-100">
+    <div class="row g-4 px-3 w-100">
         <?php while ($row = mysqli_fetch_assoc($result)) {
             $product_id = $row['id'];
             $product_name = $row['name'];
@@ -42,7 +42,7 @@ if ($result && mysqli_num_rows($result) > 0) { ?>
             $product_description = $row['description'];
             $product_stock = $row['stock'];
         ?>
-            <div class="col-6">
+            <div class="col-3">
                 <div class="card h-100 stock-card">
                     <img src="../uploads/<?php echo $product_image; ?>" class="card-img-top" alt="Product Image">
                     <div class="card-body d-flex flex-column">

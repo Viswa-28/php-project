@@ -56,8 +56,8 @@ body{
     box-shadow: 0 3px 12px rgba(124, 58, 237, 0.3); /* subtle shadow */
     transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
-    max-width: 300px;                /* small card width */
     margin: 0 auto;
+    max-width: 300px;
 }
 
 .stock-card:hover {
@@ -66,12 +66,10 @@ body{
 }
 
 .stock-card img {
-    height: 150px;                   /* smaller image */
+    height: 200px;                   /* smaller image */
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: top;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
 .card-body h5 {

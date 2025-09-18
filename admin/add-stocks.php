@@ -1,8 +1,8 @@
 <?php
 // session_start();
 include('../include/config.php');
+
 include('./admin-nav.php');
-include('../include/header.php');
 
 $error = '';
 $success = '';
@@ -49,6 +49,7 @@ if(isset($_POST['add_product'])) {
     } else {
         $error = "Please upload a valid image.";
     }
+include('../include/header.php');
 }
 ?>
 

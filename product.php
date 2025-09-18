@@ -24,7 +24,7 @@ if(isset($_GET['id'])) {
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Product</li>
+        <li class="breadcrumb-item active text-white" aria-current="page">Product</li>
       </ol>
     </nav>
   </div>
@@ -39,7 +39,7 @@ if(isset($_GET['id'])) {
  <div class="col-md-6">
     <div class="product">
         <h1 class="product-title text-white"><?= $name; ?></h1>
-        <p class="product-price text-white">Rp. <?= number_format($price); ?></p>
+        <p class="product-price text-white">Rs. <?= number_format($price); ?></p>
         <p class="product-description text-white"><?= $description; ?></p>
 
         <!-- Single Form -->

@@ -25,7 +25,7 @@ $discount = 500;
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="product.php?id=<?php echo $id; ?>" class="text-decoration-none">Product</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+        <li class="breadcrumb-item active text-white" aria-current="page">Cart</li>
       </ol>
     </nav>
   </div>
@@ -49,7 +49,7 @@ $discount = 500;
                 <!-- Quantity Selector -->
                 <div class="quantity-container d-flex align-items-center justify-content-center gap-3 mt-2">
                     <button type="button" class="qty-btn minus">-</button>
-                    <div class="qty-num">1</div>
+                    <div class="qty-num text-white">1</div>
                     <button type="button" class="qty-btn plus">+</button>
                 </div>
             </div>

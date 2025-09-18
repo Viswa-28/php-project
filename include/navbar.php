@@ -40,7 +40,7 @@ if(isset($_SESSION['user_id'])) {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
   <div class="container w-100">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Midnight Vogue</a>
 
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse"

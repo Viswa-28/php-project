@@ -21,7 +21,7 @@ include('./include/navbar.php');
                 <p class="para text-white mt-3">
                     Where luxury meets darkness, and style finds its true expression.
                 </p>
-                <a href="#" class="primary mt-3 d-inline-block">Explore Collections</a>
+                <a href="./all.php" class="primary mt-3 d-inline-block">Explore Collections</a>
             </div>
 
             <!-- Image Content -->

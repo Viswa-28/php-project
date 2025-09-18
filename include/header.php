@@ -37,6 +37,7 @@ $server = basename($_SERVER['PHP_SELF']);
     elseif($server == 'users.php') echo '<link rel="stylesheet" href="../css/users.css">';
     elseif($server == 'delete-users.php') echo '<link rel="stylesheet" href="../css/users.css">';
     elseif($server == 'admin.php') echo '<link rel="stylesheet" href="../css/admin.css">';
+    elseif($server == 'all.php') echo '<link rel="stylesheet" href="./css/all.css">';
 
     ?>
 
