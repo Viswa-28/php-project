@@ -15,7 +15,7 @@ if(isset($_POST['checkout'])) {
    $result=$conn->query($sql);
 
    if($result){
-    echo "<script>alert('Order Successful');window.location.href='index.php';</script>";
+    echo "<script>alert('Order successfully confirmed');window.location.href='index.php';</script>";
    }
 }
 

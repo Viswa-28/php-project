@@ -54,14 +54,15 @@ if(isset($_SESSION['user_id'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-white fs-5" href="index.php">Home</a>
+          <a class="nav-link text-white fs-5 <?php echo ($server == 'index.php') ? 'active' : ''; ?>" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fs-5 <?php echo ($server == 'all.php') ? 'active' : ''; ?>" href="./all.php">Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white fs-5" href="#new arrivals">New arrivals</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fs-5" href="#catogory">Categories</a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link text-white fs-5" href="#contact">Contact</a>
         </li>

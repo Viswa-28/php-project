@@ -28,11 +28,13 @@ $server = basename($_SERVER['PHP_SELF']);
     <?php
     if ($server == "index.php") echo '<link rel="stylesheet" href="css/style.css">';
     elseif($server == "footer.php") echo '<link rel="stylesheet" href="../css/footer.css">';
+    elseif($server == "navbar.php") echo '<link rel="stylesheet" href="../css/style.css">';
  
     
     elseif ($server == "product.php") echo '<link rel="stylesheet" href="css/product.css">';
     elseif ($server == "cart.php") echo '<link rel="stylesheet" href="./css/cart.css">';
     elseif ($server == 'stocks.php') echo '<link rel="stylesheet" href="../css/stocks.css">';
+    elseif ($server == 'add-stocks.php'|| $server == 'edit-stocks.php') echo '<link rel="stylesheet" href="../css/addstocks.css">';
     elseif($server == 'enquiry.php') echo '<link rel="stylesheet" href="../css/enquiry.css">';
     elseif($server == 'users.php') echo '<link rel="stylesheet" href="../css/users.css">';
     elseif($server == 'delete-users.php') echo '<link rel="stylesheet" href="../css/users.css">';

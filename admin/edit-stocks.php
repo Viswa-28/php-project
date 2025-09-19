@@ -1,7 +1,6 @@
 <?php
 include('../include/config.php');
-include('../include/header.php');
-// include('./admin-nav.php');
+
 
 $error = '';
 $success = '';
@@ -29,7 +28,7 @@ if (isset($_POST['update_product'])) {
     $description = $_POST['description'];
     $price = $_POST['price'];
     $stock = $_POST['stock'];
-    $testimonial = $_POST['testimonial'];
+    // $testimonial = $_POST['testimonial'];?
 
     // Keep current image
     $image_name = $product['image'];
@@ -74,6 +73,8 @@ if (!isset($_GET['product_id'])) {
         }
     }
 }
+include('../include/header.php');
+include('./admin-nav.php');
 ?>
 
 <div class="container mt-5">
@@ -112,10 +113,10 @@ if (!isset($_GET['product_id'])) {
             <input type="number" name="stock" class="form-control" min="0" required value="<?php echo $product['stock']; ?>">
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label>Testimonial</label>
             <textarea name="testimonial" class="form-control" rows="2"><?php echo $product['testimonial']; ?></textarea>
-        </div>
+        </div> -->
 
         <div class="mb-3">
             <label>Current Image</label><br>

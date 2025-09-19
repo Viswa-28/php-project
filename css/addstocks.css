@@ -1,0 +1,98 @@
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background:black;
+  color: #2d2d2d;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  background: #ffffff;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
+}
+
+/* Headings */
+h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #7C3AED;
+  margin-bottom: 1.5rem;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Inputs & Textareas */
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #7C3AED;
+  box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+  outline: none;
+}
+
+/* File Upload */
+input[type="file"] {
+  padding: 0.5rem;
+  background: #f3f0ff;
+  border: 1px dashed #7C3AED;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #7C3AED;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #5b21b6;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Alerts */
+.alert {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.alert-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.alert-success {
+  background: #e0e7ff;
+  color: #1e40af;
+}

@@ -66,78 +66,77 @@ include('./include/navbar.php');
     ?>
 </section>
 
-<section id="catogory" class="catogory container mt-5">
+<section id="category" class="category container mt-5 mb-5">
 
   <!-- Tabs -->
   <nav class="d-flex justify-content-center">
     <div class="nav nav-tabs gap-5 border-0" id="nav-tab" role="tablist">
-      <button class="nav-link  active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
-        role="tab" aria-controls="nav-home" aria-selected="true">Men</button>
-      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
-        role="tab" aria-controls="nav-profile" aria-selected="false">Women</button>
+      <button class="nav-link active" id="nav-men-tab" data-bs-toggle="tab" data-bs-target="#nav-men" type="button"
+        role="tab" aria-controls="nav-men" aria-selected="true">Men</button>
+      <button class="nav-link" id="nav-women-tab" data-bs-toggle="tab" data-bs-target="#nav-women" type="button"
+        role="tab" aria-controls="nav-women" aria-selected="false">Women</button>
     </div>
   </nav>
 
   <!-- Tab Content -->
   <div class="tab-content mt-5" id="nav-tabContent">
-    
+
     <!-- Men Section -->
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
+    <div class="tab-pane fade show active" id="nav-men" role="tabpanel" aria-labelledby="nav-men-tab">
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/men-1.avif" alt="Black Suit" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Black Suit</p>
-        </div>
+        <?php
+        $sql = "SELECT * FROM products WHERE category='Men'";
+        $result = $conn->query($sql);
 
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/men-2.avif" alt="Black Shirt" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Black Shirt</p>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/men-3.avif" alt="Black Shoe" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Black Shoe</p>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/men-4.avif" alt="Perfume" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Perfume</p>
-        </div>
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo '
+              <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
+                <a href="product.php?id=' . $row['id'] . '" class="text-decoration-none">
+                  <img src="./uploads/' . $row['image'] . '" alt="' . $row['name'] . '" class="img-fluid rounded shadow-sm" style="height:300px; object-fit:cover;">
+                  <p class="text-center text-white mt-2 fw-bold">' . $row['name'] . '</p>
+                </a>
+              </div>
+            ';
+          }
+        } else {
+          echo '<p class="text-center text-muted">No products found in Men category.</p>';
+        }
+        ?>
       </div>
-
     </div>
 
     <!-- Women Section -->
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="tab-pane fade" id="nav-women" role="tabpanel" aria-labelledby="nav-women-tab">
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/women-1.png" alt="Women Dress" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Women Dress</p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/women-2.png" alt="Women Dress" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Women Dress</p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/women-3.png" alt="Women Dress" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Women Dress</p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
-          <img src="./images/women-4.png" alt="Women Dress" class="img-fluid rounded shadow-sm">
-          <p class=" text-center mt-2">Women Dress</p>
-        </div>
-        <!-- Add more women products here -->
+        <?php
+        $sql = "SELECT * FROM products WHERE category='Women'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo '
+              <div class="col-12 col-md-6 col-lg-3 d-flex flex-column align-items-center">
+                <a href="product.php?id=' . $row['id'] . '" class="text-decoration-none">
+                  <img src="./uploads/' . $row['image'] . '" alt="' . $row['name'] . '" class="img-fluid rounded shadow-sm" style="height:300px; object-fit:cover;">
+                  <p class="text-center text-white mt-2 fw-bold">' . $row['name'] . '</p>
+                </a>
+              </div>
+            ';
+          }
+        } else {
+          echo '<p class="text-center text-muted">No products found in Women category.</p>';
+        }
+        ?>
       </div>
     </div>
 
   </div>
 </section>
 
+
 <?php
-// session_start();
-ob_start();
-include('./include/config.php'); // make sure $conn is defined here
+ // make sure $conn is defined here
 
 $name = $email = $message = "";
 $errors = [];
@@ -150,21 +149,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $email = trim($_POST['email']);
     $message = trim($_POST['message']);
 
-    // Name validation
+    // Name validation: only letters and spaces, 3-15 chars
     if (empty($name)) {
         $errors['name'] = "Name is required.";
     } elseif (!preg_match("/^[a-zA-Z ]{3,15}$/", $name)) {
-        $errors['name'] = "Name must be 3-15 letters only.";
+        $errors['name'] = "Name must be 3-15 letters and no numbers or special chars.";
     }
 
     // Email validation
     if (empty($email)) {
         $errors['email'] = "Email is required.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    } elseif (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i", $email)) {
         $errors['email'] = "Enter a valid email address.";
     }
 
-    // Message validation
+    // Message validation: at least 15 chars, letters, numbers, spaces only
     if (empty($message)) {
         $errors['message'] = "Message is required.";
     } elseif (strlen($message) < 15) {
@@ -175,26 +174,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     // If no errors, insert into DB
     if (empty($errors)) {
-       $data="INSERT INTO contacts(name,email,message) VALUES('$name','$email','$message')";
-       $result=mysqli_query($conn,$data);
-        if($result){
-            $_SESSION['success'] = "✅ Thank you, $name! Your message has been sent.";
+        $stmt = $conn->prepare("INSERT INTO contacts (name,email,message) VALUES (?,?,?)");
+        $stmt->bind_param("sss", $name, $email, $message);
+        if ($stmt->execute()) {
+            $success = "✅ Thank you, $name! Your message has been sent.";
             $name = $email = $message = ""; // clear form
-            // exit();
-        }else{
-            $_SESSION['success'] = "❌ Something went wrong. Please try again.";
+        } else {
+            $success = "❌ Something went wrong. Please try again.";
         }
     }
 }
-
-// Retrieve success
-if (isset($_SESSION['success'])) {
-    $success = $_SESSION['success'];
-    unset($_SESSION['success']);
-}
-ob_end_flush();
 ?>
-
 
 <section id="contact" class="contact">
     <form id="contactForm" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
@@ -203,7 +193,7 @@ ob_end_flush();
         <input type="text" class="username" name="name" placeholder="Username" value="<?= htmlspecialchars($name) ?>">
         <span class="error"><?= $errors['name'] ?? '' ?></span>
 
-        <input type="email" class="email" name="email" placeholder="Email" value="<?= htmlspecialchars($email) ?>">
+        <input type="text" class="email" name="email" placeholder="Email" value="<?= htmlspecialchars($email) ?>">
         <span class="error"><?= $errors['email'] ?? '' ?></span>
 
         <textarea class="message" name="message" placeholder="Your Message"><?= htmlspecialchars($message) ?></textarea>
@@ -212,10 +202,11 @@ ob_end_flush();
         <button type="submit" name="submit" class="primary">Submit</button>
 
         <?php if (!empty($success)) : ?>
-            <p class="success"><?= $success ?></p>
+            <p class="success mt-2"><?= $success ?></p>
         <?php endif; ?>
     </form>
 </section>
+
 
 
 

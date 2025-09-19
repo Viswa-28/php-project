@@ -3,6 +3,9 @@ body{
     color: white!important;
     overflow-x: hidden;
 }
+  .nav-links a.active{
+    color: #6D28D9 !important;
+  }
 
 .banner{
     height: 70vh ;

@@ -11,54 +11,96 @@ include('../include/config.php');
 include('../include/header.php');
 include('./admin-nav.php');
 
-$sql = "SELECT * FROM users ORDER BY id DESC LIMIT 10";
-$result = $conn->query($sql);
-
-if ($result && $result->num_rows > 0) {
-    echo '<h2 class="sub text-center mt-5 mb-4">Users</h2>';
-    echo '<div class="container">';
-    echo '<div class="table-responsive">';
-    echo '<table class="table table-striped table-bordered  table-bordered text-white mt-4 mb-4 text-center">';
-    echo '<thead class="table-dark">';
-    echo '<tr>';
-    echo '<th class="text-start">ID</th>';
-    echo '<th class="text-start">Role</th>';
-    echo '<th class="text-start">Email</th>';
-    
-    // Show password column only if logged-in user is super_admin
-    if ($_SESSION['role'] === 'super_admin') {
-        echo '<th class="text-start">Password</th>';
-        // echo '<th>edit</th>';
-        echo '<th class="text-start">delete</th>';
-    }
-
-    echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
-
-    $i = 1;
-
-    while ($row = $result->fetch_assoc()) {
-        echo '<tr>';
-        echo '<td class="text-start">' . $i++ . '</td>';
-        echo '<td class="text-start">' . htmlspecialchars($row['role']) . '</td>';
-        echo '<td class="text-start">' . htmlspecialchars($row['email']) . '</td>';
-
-        // Show password only for super_admin logged-in user, otherwise mask or hide
-        if ($_SESSION['role'] === 'super_admin') {
-            echo '<td class="text-start">' . htmlspecialchars($row['password']) . '</td>';
-            // echo '<td><a href="edit-users.php?id=' . $row['id'] . '" class="btn btn-primary">Edit</a></td>';
-            echo '<td class="text-start"><a href="delete-users.php?id=' . $row['id'] . '" class="btn btn-danger">Delete</a></td>';
-        }
-
-        echo '</tr>';
-    }
-
-    echo '</tbody>';
-    echo '</table>';
-    echo '</div>'; // table-responsive
-    echo '</div>'; // container
-} else {
-    echo '<p class="text-center text-white mt-4">No users found.</p>';
-}
+// Fetch users and admins separately
+$users = $conn->query("SELECT * FROM users WHERE role='user' ORDER BY id DESC");
+$admins = $conn->query("SELECT * FROM users WHERE role IN ('admin','super_admin') ORDER BY id DESC");
 ?>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">User Management</h2>
+
+    <!-- Nav Tabs -->
+    <ul class="nav nav-tabs" id="userTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="users-tab" data-bs-toggle="tab" data-bs-target="#users" type="button" role="tab">Users</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="admins-tab" data-bs-toggle="tab" data-bs-target="#admins" type="button" role="tab">Admins</button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-4">
+        <!-- Users Tab -->
+        <div class="tab-pane fade show active" id="users" role="tabpanel">
+            <?php if ($users && $users->num_rows > 0): ?>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered text-white text-start">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <?php if ($_SESSION['role'] === 'super_admin'): ?>
+                                    <th>Delete</th>
+                                <?php endif; ?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            $i = 1;
+                            while ($row = $users->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= htmlspecialchars($row['email']) ?></td>
+                                    <?php if ($_SESSION['role'] === 'super_admin'): ?>
+                                        <td><a href="delete-users.php?id=<?= $row['id'] ?>" class="btn btn-danger btn-sm">Delete</a></td>
+                                    <?php endif; ?>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            <?php else: ?>
+                <p class="text-center text-muted">No users found.</p>
+            <?php endif; ?>
+        </div>
+
+        <!-- Admins Tab -->
+        <div class="tab-pane fade" id="admins" role="tabpanel">
+            <?php if ($admins && $admins->num_rows > 0): ?>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered text-white text-start">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <?php if ($_SESSION['role'] === 'super_admin'): ?>
+                                    <th>Delete</th>
+                                <?php endif; ?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            $i = 1;
+                            while ($row = $admins->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= htmlspecialchars($row['role']) ?></td>
+                                    <td><?= htmlspecialchars($row['email']) ?></td>
+                                    <?php if ($_SESSION['role'] === 'super_admin' && $row['id'] != $_SESSION['user_id']): ?>
+                                        <td><a href="delete-users.php?id=<?= $row['id'] ?>" class="btn btn-danger btn-sm">Delete</a></td>
+                                    <?php else: ?>
+                                        <td class="text-muted">--</td>
+                                    <?php endif; ?>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            <?php else: ?>
+                <p class="text-center text-muted">No admins found.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>

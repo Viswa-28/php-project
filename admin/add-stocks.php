@@ -1,8 +1,8 @@
 <?php
 // session_start();
 include('../include/config.php');
+include('../include/header.php');
 
-include('./admin-nav.php');
 
 $error = '';
 $success = '';
@@ -14,7 +14,7 @@ if(isset($_POST['add_product'])) {
     $description = trim($_POST['description']);
     $price = floatval($_POST['price']);
     $stock = intval($_POST['stock']);
-    $testimonial = trim($_POST['testimonial']);
+    // $testimonial = trim($_POST['testimonial']);
 
     // Check for required fields
     if(empty($name) || empty($category) || empty($description) || empty($price) || empty($stock)) {
@@ -49,7 +49,8 @@ if(isset($_POST['add_product'])) {
     } else {
         $error = "Please upload a valid image.";
     }
-include('../include/header.php');
+include('./admin-nav.php');
+
 }
 ?>
 
@@ -100,10 +101,10 @@ include('../include/header.php');
             <input type="number" name="stock" id="stock" class="form-control" min="0" required>
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="testimonial" class="form-label">Testimonial</label>
             <textarea name="testimonial" id="testimonial" class="form-control" rows="2"></textarea>
-        </div>
+        </div> -->
 
         <button type="submit" name="add_product" class="btn btn-primary">Add Product</button>
     </form>

@@ -8,8 +8,10 @@ include('../include/header.php');
 $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : 'Admin'; // default to Admin
 $server = basename($_SERVER['PHP_SELF']);
 ?>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <nav class="navbar navbar-expand-lg" style="background-color: #000;">
+
+
     <div class="container-fluid">
         <!-- Logo / Brand -->
         <a class="navbar-brand text-white fw-bold" href="#">Midnight Vogue</a>
@@ -38,14 +40,18 @@ $server = basename($_SERVER['PHP_SELF']);
             </ul>
 
             <!-- Role Badge -->
-            <div class="d-flex align-items-center ms-lg-3 px-3 py-1 rounded" 
-     style="background-color: #7C3AED; color: #fff; font-weight: 600; gap: 15px;">
-     
+       <!-- Role Badge -->
+<div class="d-flex align-items-center ms-lg-3 px-3 py-1 rounded" 
+     style="background-color: #7C3AED; color: #fff; font-weight: 600; gap: 10px;">
+
+    <!-- Profile Icon -->
+    <i class="bi bi-person-circle fs-5 text-white bg-w"></i>
+
     <!-- User Role -->
-    <span><?php echo ucfirst(str_replace('', ' ', $user_role)); ?></span>
+    <span><?php echo ucfirst(str_replace('_', ' ', $user_role)); ?></span>
 
     <!-- Logout Link -->
-    <a href="admin-logout.php" class="btn btn-sm btn-light fw-bold" 
+    <a href="admin-logout.php" class="btn btn-sm btn-light fw-bold ms-2" 
        style="color:#7C3AED; background:#fff; border-radius:8px; padding:4px 12px;">
         Logout
     </a>
@@ -71,4 +77,5 @@ $server = basename($_SERVER['PHP_SELF']);
 
 
 <!-- Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
